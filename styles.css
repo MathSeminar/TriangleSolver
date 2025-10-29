@@ -1,0 +1,627 @@
+/* ============================================
+   VARIABLES DE COLOR IJR
+   ============================================ */
+:root {
+    /* Colores principales */
+    --color-primary: #538594;      /* Blue-gray */
+    --color-secondary: #468660;    /* Green */
+    --color-accent: #8D584D;       /* Reddish-brown */
+    
+    /* Colores de fondo */
+    --color-bg-light: #FFFFFF;     /* White */
+    --color-bg-soft: #DBE2E5;      /* Light blue-gray */
+    --color-bg-alt: #F3F2F2;       /* Off-white */
+    --color-bg-subtle: #E9E9E9;    /* Light gray */
+    
+    /* Colores de texto y bordes */
+    --color-text-dark: #333333;    /* Dark gray */
+    --color-text-medium: #A1A7A5;  /* Medium gray */
+    --color-border: #DBE2E5;       /* Light blue-gray */
+    
+    /* Colores de estado */
+    --color-success: #468660;      /* Green */
+    --color-success-light: #DBE2E5; /* Light blue-gray with green tint */
+    --color-danger: #8D584D;       /* Reddish-brown */
+    
+    /* Sombras mejoradas */
+    --shadow-sm: 0 2px 8px rgba(83, 133, 148, 0.12);
+    --shadow-md: 0 4px 16px rgba(83, 133, 148, 0.18);
+    --shadow-lg: 0 10px 40px rgba(83, 133, 148, 0.25);
+    --shadow-xl: 0 20px 60px rgba(83, 133, 148, 0.3);
+}
+
+/* ============================================
+   RESET BÁSICO
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ============================================
+   BODY Y CONTENEDOR PRINCIPAL
+   ============================================ */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: var(--color-bg-light);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: var(--shadow-xl);
+    max-width: 900px;
+    width: 100%;
+    position: relative;
+}
+
+/* ============================================
+   BOTONES DE CAMBIO DE IDIOMA
+   ============================================ */
+
+.language-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 5px;
+    background-color: var(--color-bg-soft);
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+}
+
+.lang-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    color: var(--color-text-dark);
+}
+
+.lang-btn:hover {
+    background-color: rgba(83, 133, 148, 0.1);
+}
+
+.lang-btn.active {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: var(--color-bg-light);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ============================================
+   ENCABEZADO E INSTRUCCIONES
+   ============================================ */
+
+h1 {
+    text-align: center;
+    color: var(--color-text-dark);
+    margin-bottom: 25px;
+    margin-top: 10px;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+/* ============================================
+   SECCIÓN DE INTEGRANTES
+   ============================================ */
+
+.integrantes {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+    border: 2px solid var(--color-primary);
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.integrantes:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.logo-container {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.school-logo {
+    width: 70px;
+    height: auto;
+    display: block;
+}
+
+.names-info {
+    flex: 1;
+    text-align: left;
+}
+
+.names-info p {
+    margin: 4px 0;
+    color: var(--color-text-dark);
+}
+
+.names-info strong {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.student-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-dark);
+    line-height: 1.6;
+}
+
+.year {
+    font-size: 13px;
+    color: var(--color-text-medium);
+    margin-top: 8px;
+    font-weight: 600;
+}
+
+/* ============================================
+   INSTRUCCIONES
+   ============================================ */
+
+.instrucciones {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: var(--color-bg-light);
+    padding: 20px 25px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+}
+
+.instrucciones p {
+    margin: 6px 0;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.instrucciones strong {
+    font-size: 17px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* ============================================
+   CONTENEDOR DEL TRIÁNGULO
+   ============================================ */
+
+.triangle-container {
+    position: relative;
+    width: 100%;
+    max-width: 770px;
+    margin: 0 auto 40px;
+    padding: 80px 60px;
+    background: linear-gradient(135deg, var(--color-bg-alt) 0%, var(--color-bg-subtle) 100%);
+    border-radius: 20px;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.triangle-image {
+    width: 100%;
+    height: auto;
+    margin-left: 5.3%;
+    display: block;
+    opacity: 0.95;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+/* ============================================
+   CAMPOS DE ENTRADA
+   ============================================ */
+
+.input-field {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-field label {
+    font-weight: 700;
+    color: var(--color-text-dark);
+    font-size: 14px;
+    white-space: nowrap;
+    background-color: var(--color-bg-light);
+    padding: 8px 14px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    border: 2px solid var(--color-border);
+    transition: all 0.3s ease;
+}
+
+.input-field label:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+}
+
+.input-field input {
+    width: 100px;
+    padding: 12px 14px;
+    border: 2px solid var(--color-primary);
+    border-radius: 10px;
+    font-size: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Estados del input */
+.input-field input:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 4px rgba(70, 134, 96, 0.15);
+    transform: scale(1.05);
+    background-color: rgba(70, 134, 96, 0.05);
+}
+
+.input-field input:not(:placeholder-shown) {
+    background: linear-gradient(135deg, rgba(70, 134, 96, 0.1) 0%, rgba(70, 134, 96, 0.05) 100%);
+    border-color: var(--color-success);
+    font-weight: 700;
+}
+
+.input-field input::placeholder {
+    color: var(--color-text-medium);
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+/* Efecto hover en inputs */
+.input-field input:hover {
+    border-color: var(--color-secondary);
+    box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+   POSICIONAMIENTO DE CAMPOS ESPECÍFICOS
+   ============================================ */
+
+/* Ángulo - esquina inferior izquierda */
+.angulo-field {
+    bottom: 18%;
+    left: 0.8%;
+}
+
+/* Cateto adyacente - parte inferior central */
+.adyacente-field {
+    bottom: 10%;
+    left: 46%;
+    transform: translateX(-50%);
+}
+
+/* Cateto opuesto - lado derecho */
+.opuesto-field {
+    right: 0.5%;
+    top: 50%;
+    transform: translateY(-50%);
+    flex-direction: row-reverse;
+}
+
+/* Hipotenusa - parte superior diagonal */
+.hipotenusa-field {
+    top: 40%;
+    left: 35%;
+    transform: translateX(-50%);
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+
+.button-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 16px 40px;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+    font-family: inherit;
+    letter-spacing: 0.3px;
+}
+
+/* Botón calcular */
+.calcular-btn {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: var(--color-bg-light);
+}
+
+.calcular-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.calcular-btn:active {
+    transform: translateY(0);
+}
+
+/* Botón limpiar */
+.reset-btn {
+    background: linear-gradient(135deg, var(--color-accent) 0%, #7a4a42 100%);
+    color: var(--color-bg-light);
+}
+
+.reset-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.reset-btn:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   ANIMACIONES
+   ============================================ */
+
+@keyframes pulse {
+    0% { 
+        transform: scale(1); 
+    }
+    50% { 
+        transform: scale(1.08); 
+    }
+    100% { 
+        transform: scale(1); 
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.calculated {
+    animation: pulse 0.6s ease;
+}
+
+.container {
+    animation: fadeIn 0.6s ease;
+}
+
+.integrantes {
+    animation: slideIn 0.5s ease;
+}
+
+/* ============================================
+   DISEÑO RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    .container {
+        padding: 30px 20px;
+    }
+    
+    .language-toggle {
+        top: 15px;
+        right: 15px;
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+    
+    h1 {
+        font-size: 22px;
+        margin-top: 40px;
+    }
+    
+    .integrantes {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 15px;
+    }
+    
+    .names-info {
+        text-align: center;
+    }
+    
+    .school-logo {
+        width: 60px;
+    }
+    
+    .triangle-container {
+        padding: 60px 30px;
+    }
+    
+    .input-field input {
+        width: 85px;
+        font-size: 13px;
+        padding: 10px 12px;
+    }
+    
+    .input-field label {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+    
+    button {
+        padding: 14px 30px;
+        font-size: 14px;
+        width: 100%;
+    }
+    
+    .button-container {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .instrucciones p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 25px 15px;
+    }
+    
+    h1 {
+        font-size: 20px;
+    }
+    
+    .school-logo {
+        width: 50px;
+    }
+    
+    .triangle-container {
+        padding: 40px 20px;
+    }
+    
+    .input-field input {
+        width: 75px;
+        font-size: 12px;
+    }
+    
+    .input-field label {
+        font-size: 11px;
+        padding: 5px 8px;
+    }
+}
+
+/* ============================================
+   UTILIDADES
+   ============================================ */
+
+/* Clase para ocultar elementos */
+.hidden {
+    display: none !important;
+}
+
+/* Clase para deshabilitar elementos */
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+/* Clase para efectos de loading */
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 3px solid var(--color-bg-soft);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   ACCESIBILIDAD
+   ============================================ */
+
+/* Mejora el contraste para lectura */
+@media (prefers-contrast: high) {
+    .input-field label {
+        border: 2px solid var(--color-text-dark);
+    }
+    
+    button {
+        border: 2px solid transparent;
+    }
+    
+    button:focus {
+        border-color: var(--color-text-dark);
+    }
+}
+
+/* Respeta la preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Estilos para modo de impresión */
+@media print {
+    body {
+        background: white;
+    }
+    
+    .container {
+        box-shadow: none;
+    }
+    
+    button,
+    .language-toggle {
+        display: none;
+    }
+}

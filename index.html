@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculadora visual de triángulos rectángulos">
+    <meta name="author" content="Estudiante">
+    <title data-es="Calculadora de Triángulos" data-en="Triangle Calculator">Calculadora de Triángulos</title>
+    
+    <!--Aquí importo los estilos -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Botones para los lenguajes -->
+        <div class="language-toggle">
+            <button class="lang-btn active" data-lang="es" onclick="cambiarIdioma('es')">ES</button>
+            <button class="lang-btn" data-lang="en" onclick="cambiarIdioma('en')">EN</button>
+        </div>
+      
+        <h1 data-es="Calculadora de Triángulos Rectángulos" data-en="Right Triangle Calculator">
+            Calculadora de Triángulos Rectángulos
+        </h1>
+        
+        <div class="integrantes">
+            <div class="logo-container">
+                <img src="LogoColegio.png" alt="School Logo" class="school-logo">
+            </div>
+            <div class="names-info">
+                <p><strong data-es="Desarrollado por:" data-en="Developed by:">Desarrollado por:</strong></p>
+                <p class="student-name">Maria Camila Barrera Arango</p>
+                <p class="student-name">Álvaro José Ovalle Herrera</p>
+                <p class="year">2025</p>
+            </div>
+        </div>
+        
+        <div class="instrucciones">
+            <p><strong data-es="Instrucciones:" data-en="Instructions:">Instrucciones:</strong></p>
+            <p data-es="Ingrese SOLO 2 valores conocidos en los campos alrededor del triángulo" 
+               data-en="Enter ONLY 2 known values in the fields around the triangle">
+                Ingrese SOLO 2 valores conocidos en los campos alrededor del triángulo
+            </p>
+            <p data-es="El programa calculará automáticamente los valores restantes" 
+               data-en="The program will automatically calculate the remaining values">
+                El programa calculará automáticamente los valores restantes
+            </p>
+            <p data-es="Ángulo en grados (no radianes)" 
+               data-en="Angle in degrees (not radians)">
+                Ángulo en grados (no radianes)
+            </p>
+        </div>
+        
+        
+        <div class="triangle-container">
+            <!-- Imagen -->
+            <img src="TrianglePlantilla.png" alt="Triángulo Rectángulo" class="triangle-image">
+            
+            <!-- Ángulo ángulo (esquina inferior izquierda) -->
+            <div class="input-field angulo-field">
+                <label for="angulo">θ (°)</label>
+                <input 
+                    type="number" 
+                    id="angulo" 
+                    name="angulo" 
+                    placeholder="30"
+                    step="0.01"
+                    data-es-placeholder="30"
+                    data-en-placeholder="30">
+            </div>
+            
+            <!-- Cateto Adyacente (parte inferior) -->
+            <div class="input-field adyacente-field">
+                <label for="adyacente" data-es="Adyacente" data-en="Adjacent">Adyacente</label>
+                <input 
+                    type="number" 
+                    id="adyacente" 
+                    name="adyacente" 
+                    placeholder="8.66"
+                    step="0.01"
+                    data-es-placeholder="8.66"
+                    data-en-placeholder="8.66">
+            </div>
+            
+            <!-- Cateto Opuesto (lado derecho) -->
+            <div class="input-field opuesto-field">
+                <input 
+                    type="number" 
+                    id="opuesto" 
+                    name="opuesto" 
+                    placeholder="5"
+                    step="0.01"
+                    data-es-placeholder="5"
+                    data-en-placeholder="5">
+                <label for="opuesto" data-es="Opuesto" data-en="Opposite">Opuesto</label>
+            </div>
+            
+            <!-- Hipotenusa (parte superior) -->
+            <div class="input-field hipotenusa-field">
+                <label for="hipotenusa" data-es="Hipotenusa" data-en="Hypotenuse">Hipotenusa</label>
+                <input 
+                    type="number" 
+                    id="hipotenusa" 
+                    name="hipotenusa" 
+                    placeholder="10"
+                    step="0.01"
+                    data-es-placeholder="10"
+                    data-en-placeholder="10">
+            </div>
+        </div>
+        
+        <!-- Botones-->
+        <div class="button-container">
+            <button class="calcular-btn" onclick="calcular()" 
+                    data-es="Calcular Triángulo" data-en="Calculate Triangle">
+                Calcular Triángulo
+            </button>
+            <button class="reset-btn" onclick="limpiar()"
+                    data-es="Limpiar Todo" data-en="Clear All">
+                Limpiar Todo
+            </button>
+        </div>
+    </div>
+    
+    <!-- Aquí importo el js -->
+    <script src="calculadora.js"></script>
+</body>
+</html>

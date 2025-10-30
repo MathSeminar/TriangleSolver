@@ -31,9 +31,24 @@
 }
 
 /* ============================================
-   RESET BÁSICO
+   RESET BÁSICO Y CONTROL DE OVERFLOW
    ============================================ */
-* {
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -61,24 +76,54 @@ body {
     max-width: 900px;
     width: 100%;
     position: relative;
+    box-sizing: border-box;
+    margin: 0 auto;
+    animation: fadeIn 0.6s ease;
 }
 
 /* ============================================
-   BOTONES DE CAMBIO DE IDIOMA
+   BOTÓN DE CAMBIO DE IDIOMA
    ============================================ */
 
 .language-toggle {
     position: absolute;
     top: 20px;
     right: 20px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: var(--color-bg-light);
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
     display: flex;
-    gap: 5px;
-    background-color: var(--color-bg-soft);
-    padding: 5px;
-    border-radius: 8px;
-    box-shadow: var(--shadow-sm);
+    align-items: center;
+    gap: 8px;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    z-index: 100;
 }
 
+.language-toggle:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.language-toggle:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.lang-icon {
+    font-size: 18px;
+}
+
+#lang-text {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Soporte para botones antiguos de idioma */
 .lang-btn {
     padding: 8px 16px;
     font-size: 13px;
@@ -102,7 +147,7 @@ body {
 }
 
 /* ============================================
-   ENCABEZADO E INSTRUCCIONES
+   ENCABEZADO
    ============================================ */
 
 h1 {
@@ -116,7 +161,7 @@ h1 {
 }
 
 /* ============================================
-   SECCIÓN DE INTEGRANTES
+   SECCIÓN DE INTEGRANTES CON LOGO
    ============================================ */
 
 .integrantes {
@@ -130,6 +175,7 @@ h1 {
     gap: 20px;
     box-shadow: var(--shadow-sm);
     transition: all 0.3s ease;
+    animation: slideIn 0.5s ease;
 }
 
 .integrantes:hover {
@@ -220,18 +266,19 @@ h1 {
 .triangle-container {
     position: relative;
     width: 100%;
-    max-width: 770px;
+    max-width: 700px;
     margin: 0 auto 40px;
     padding: 80px 60px;
     background: linear-gradient(135deg, var(--color-bg-alt) 0%, var(--color-bg-subtle) 100%);
     border-radius: 20px;
     box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
 }
 
 .triangle-image {
-    width: 100%;
+    width: 90%;
     height: auto;
-    margin-left: 5.3%;
+    margin-left: 11%;
     display: block;
     opacity: 0.95;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
@@ -301,7 +348,6 @@ h1 {
     opacity: 0.7;
 }
 
-/* Efecto hover en inputs */
 .input-field input:hover {
     border-color: var(--color-secondary);
     box-shadow: var(--shadow-md);
@@ -317,14 +363,14 @@ h1 {
     left: 0.8%;
 }
 
-/* Cateto adyacente - parte inferior central */
+/*  adyacente - parte inferior central */
 .adyacente-field {
     bottom: 10%;
     left: 46%;
     transform: translateX(-50%);
 }
 
-/* Cateto opuesto - lado derecho */
+/*  opuesto - lado derecho */
 .opuesto-field {
     right: 0.5%;
     top: 50%;
@@ -432,47 +478,55 @@ button {
     }
 }
 
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
 .calculated {
     animation: pulse 0.6s ease;
 }
 
-.container {
-    animation: fadeIn 0.6s ease;
-}
-
-.integrantes {
-    animation: slideIn 0.5s ease;
-}
-
 /* ============================================
-   DISEÑO RESPONSIVE
+   RESPONSIVE
    ============================================ */
 
+/* Tablets y pantallas medianas */
 @media (max-width: 768px) {
     body {
-        padding: 15px;
+        padding: 8px;
     }
     
     .container {
-        padding: 30px 20px;
+        padding: 50px 12px 20px 12px; /* Más espacio arriba para el botón de idioma */
+        max-width: 100%;
+        width: calc(100% - 16px); /* Considera el padding del body */
     }
     
+    /*Botón de idioma en móvil */
     .language-toggle {
-        top: 15px;
-        right: 15px;
-        padding: 8px 16px;
-        font-size: 13px;
+        top: 8px;
+        right: 8px;
+        padding: 6px 12px;
+        font-size: 11px;
+        gap: 4px;
+    }
+    
+    .lang-icon {
+        font-size: 14px;
     }
     
     h1 {
-        font-size: 22px;
-        margin-top: 40px;
+        font-size: 18px;
+        margin-top: 5px;
+        margin-bottom: 15px;
     }
     
     .integrantes {
         flex-direction: column;
         text-align: center;
-        padding: 20px 15px;
+        padding: 12px 8px;
+        margin-bottom: 15px;
+        gap: 12px;
     }
     
     .names-info {
@@ -480,65 +534,272 @@ button {
     }
     
     .school-logo {
-        width: 60px;
+        width: 45px;
     }
     
-    .triangle-container {
-        padding: 60px 30px;
-    }
-    
-    .input-field input {
-        width: 85px;
+    .names-info strong {
         font-size: 13px;
-        padding: 10px 12px;
+    }
+    
+    .student-name {
+        font-size: 11px;
+    }
+    
+    .year {
+        font-size: 10px;
+    }
+    
+    .instrucciones {
+        padding: 12px 10px;
+        margin-bottom: 15px;
+    }
+    
+    .instrucciones p {
+        font-size: 10px;
+        line-height: 1.4;
+        margin: 3px 0;
+    }
+    
+    .instrucciones strong {
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+    
+    /*Container del triángulo */
+    .triangle-container {
+        padding: 30px 12px;
+        max-width: 100%;
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+    
+    .triangle-image {
+        width: 92%;
+        max-width: 100%;
+        margin: 0 auto;
+        margin-left: 10%;
+        display: block;
+    }
+    
+    .input-field {
+        gap: 2px;
+    }
+    
+    /* Tamaño de inputs en móvil */
+    .input-field input {
+        width: 40px;
+        font-size: 10px;
+        padding: 5px 4px;
+        border-width: 1px;
     }
     
     .input-field label {
-        font-size: 12px;
-        padding: 6px 10px;
+        font-size: 9px;
+        padding: 4px 6px;
+        border-width: 1px;
+    }
+    
+    /* Posicionamiento de campos en móvil */
+    .angulo-field {
+        bottom: 13%;
+        left: 9%;
+    }
+    
+    .adyacente-field {
+        bottom: 5%;
+        left: 46%;
+    }
+    
+    .opuesto-field {
+        right: 9%;
+        top: 50%;
+    }
+    
+    .hipotenusa-field {
+        top: 42%;
+        left: 40%;
     }
     
     button {
-        padding: 14px 30px;
-        font-size: 14px;
+        padding: 12px 20px;
+        font-size: 13px;
         width: 100%;
     }
     
     .button-container {
         flex-direction: column;
-        gap: 12px;
-    }
-    
-    .instrucciones p {
-        font-size: 13px;
+        gap: 10px;
+        width: 100%;
     }
 }
 
-@media (max-width: 480px) {
+/* iPhone XR y similares (414px) */
+@media (max-width: 420px) {
+    body {
+        padding: 6px;
+    }
+    
     .container {
-        padding: 25px 15px;
+        padding: 45px 10px 18px 10px;
+        width: calc(100% - 12px);
+        border-radius: 18px;
+    }
+    
+    .language-toggle {
+        top: 6px;
+        right: 6px;
+        padding: 5px 10px;
+        font-size: 10px;
     }
     
     h1 {
-        font-size: 20px;
-    }
-    
-    .school-logo {
-        width: 50px;
+        font-size: 16px;
     }
     
     .triangle-container {
-        padding: 40px 20px;
+        padding: 25px 10px;
+    }
+    
+    .triangle-image {
+        width: 90%;
     }
     
     .input-field input {
-        width: 75px;
-        font-size: 12px;
+        width: 50px;
+        font-size: 9px;
+        padding: 4px 3px;
     }
     
     .input-field label {
+        font-size: 8px;
+        padding: 3px 5px;
+    }
+    
+    .angulo-field {
+        bottom: 15%;
+        left: 1%;
+    }
+    
+    .adyacente-field {
+        bottom: 6%;
+        left: 45%;
+    }
+    
+    .opuesto-field {
+        right: -1%;
+        top: 49%;
+    }
+    
+    .hipotenusa-field {
+        top: 38%;
+        left: 30%;
+    }
+}
+
+/* Pantallas muy, muy pequeñas (iPhone SE, etc) */
+@media (max-width: 375px) {
+    body {
+        padding: 5px;
+    }
+    
+    .container {
+        padding: 42px 8px 15px 8px;
+        width: calc(100% - 10px);
+        border-radius: 16px;
+    }
+    
+    .language-toggle {
+        top: 5px;
+        right: 5px;
+        padding: 4px 8px;
+        font-size: 9px;
+        gap: 3px;
+    }
+    
+    .lang-icon {
+        font-size: 12px;
+    }
+    
+    h1 {
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+    
+    .school-logo {
+        width: 38px;
+    }
+    
+    .integrantes {
+        padding: 10px 6px;
+        gap: 10px;
+    }
+    
+    .names-info strong {
+        font-size: 12px;
+    }
+    
+    .student-name {
+        font-size: 10px;
+    }
+    
+    .year {
+        font-size: 9px;
+    }
+    
+    .instrucciones {
+        padding: 10px 8px;
+    }
+    
+    .instrucciones p {
+        font-size: 9px;
+    }
+    
+    .instrucciones strong {
         font-size: 11px;
-        padding: 5px 8px;
+    }
+    
+    .triangle-container {
+        padding: 22px 8px;
+    }
+    
+    .triangle-image {
+        width: 88%;
+    }
+    
+    .input-field input {
+        width: 48px;
+        font-size: 9px;
+        padding: 4px 2px;
+    }
+    
+    .input-field label {
+        font-size: 8px;
+        padding: 3px 4px;
+    }
+    
+    .angulo-field {
+        bottom: 14%;
+        left: -1%;
+    }
+    
+    .adyacente-field {
+        bottom: 5%;
+        left: 44%;
+    }
+    
+    .opuesto-field {
+        right: -1%;
+        top: 48%;
+    }
+    
+    .hipotenusa-field {
+        top: 37%;
+        left: 28%;
+    }
+    
+    button {
+        padding: 11px 18px;
+        font-size: 12px;
     }
 }
 
@@ -546,19 +807,16 @@ button {
    UTILIDADES
    ============================================ */
 
-/* Clase para ocultar elementos */
 .hidden {
     display: none !important;
 }
 
-/* Clase para deshabilitar elementos */
 .disabled {
     opacity: 0.5;
     pointer-events: none;
     cursor: not-allowed;
 }
 
-/* Clase para efectos de loading */
 .loading {
     position: relative;
     pointer-events: none;
@@ -578,15 +836,10 @@ button {
     animation: spin 0.8s linear infinite;
 }
 
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
 /* ============================================
    ACCESIBILIDAD
    ============================================ */
 
-/* Mejora el contraste para lectura */
 @media (prefers-contrast: high) {
     .input-field label {
         border: 2px solid var(--color-text-dark);
@@ -601,7 +854,6 @@ button {
     }
 }
 
-/* Respeta la preferencia de movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
@@ -610,7 +862,6 @@ button {
     }
 }
 
-/* Estilos para modo de impresión */
 @media print {
     body {
         background: white;
